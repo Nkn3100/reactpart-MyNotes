@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 import { Link } from 'react-router-dom';
 import React from 'react';
@@ -39,22 +40,22 @@ class UserComponent extends React.Component{
         var {items}=this.state;
         return(
             <div className="container">
-            <h2>My Notes | <Link to="/createNote" style={{ textDecoration: 'none', color: 'black' }}>Create Note   </Link></h2>
-           
-            <table className="table table-dark">
+            <h2>My Notes |<Link to="/createNote" style={{ textDecoration: 'none', color: 'black' }}><button className="button">Create Note</button> </Link></h2>
+          
+            <table className="table table-dark bgt table-striped" style={{tableLayout:'fixed'}}>
                 <thead>
-                <tr>
+                <tr style={{color:'goldenrod'}}>
                     <th>Title</th>
-                    <th>Note</th>
-                    <th></th>
+                    <th>Description</th>
+                    <th>Action</th>
                     
                 </tr>
                 </thead>
                 <tbody>
                 {items.map(item=>(
-                    <tr key={item.title}>
-                        <td>{item.title}</td>
-                        <td>{item.note}</td>
+                    <tr key={item.title} >
+                        <td style={{color:'yellowgreen'}}>{item.title}</td>
+                        <td style={{overflow:'hidden',wordWrap:'break-word'}}>{item.note}</td>
                         <td><Link to={`/updateNote/${item.title}` } ><button type="button" className="btn btn-outline-primary" >Edit</button></Link> 
                         
                         <button style={{marginLeft:"15px"}} onClick={ ()=>this.deleteNote(item.title)} type="button" className="btn btn-outline-danger">Remove</button></td>
@@ -63,7 +64,9 @@ class UserComponent extends React.Component{
                 ))}
                 </tbody>
             </table>
+         
             </div>
+          
         )
     }
 }

@@ -51,3 +51,46 @@
 body > #root > div {
   height: 100vh;
 }
+.bgt{
+
+opacity: 0.9;
+}
+#noets th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+.button {
+  background-color: #ddd;
+  font-size:x-larges;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+/* top-left border-radius */
+table tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}

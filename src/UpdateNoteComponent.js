@@ -1,3 +1,7 @@
+import './App.css';
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import UserService from './service/UserService';
@@ -41,35 +45,22 @@ class UpdateNoteComponent extends React.Component{
     render(){
         return (
             <div>
-                <div className = "container">
-                    <div className = "row">
-                        <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className= "text-center">Update Note</h3>
-                            <div className = "card-body">
-                                <form>
-                                    <div className ="form-group">
-                                        <label>Title:</label>
-                                        <input placeholder="title" name="title" className="form-control"
-                                        value={this.state.title} onChange={this.createNewTitle} />
-
-                                    </div>
-                                    <div className ="form-group">
-                                        <label>Add Note:</label>
-                                        <input placeholder="note" name="note" className="form-control"
-                                        value={this.state.note} onChange={this.createNewNote} />
-
-                                    </div>
-                                    <button className="btn btn-success" onClick={this.updateNote}>Save Changes</button>
+                                <Form style={{backgroundColor:"#DCDCDC",padding:"10px"}}>
+                                    <h2>Update Note</h2><br/>
+                                    <Form.Group controlId="title">
+                                    <Form.Control disabled value={this.state.title} maxLength="150" type="text" autoComplete="off" style={{width:"50%"}}
+                                    name="title" placeholder="Enter Title" onChange={this.createNewTitle}/>
+                                    </Form.Group><br/>
+                                    <Form.Group controlId="note">
+                                    <Form.Control value={this.state.note} maxLength="150" as="textarea" style={{width:"50%"}}
+                                        name="note" placeholder="Description" onChange={this.createNewNote}/><br/><br/>
+                                    </Form.Group>
+                                    <Button className="btn btn-success" onClick={this.updateNote}>Save</Button>
                                     <Link to="/" style={{ textDecoration: 'none', color: 'black' }}> 
-                                    <button type="button" className="btn btn-danger">Cancel</button></Link>
-                                </form>
+                                    <Button style={{marginLeft:"15px"}} type="button" className="btn btn-danger">Cancel</Button></Link>
+                                </Form>
                             </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
+                      
         )
     }
 }
